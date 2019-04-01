@@ -1,0 +1,23 @@
+{
+  "name": "devrantrss",
+  "version": "1.0.0",
+  "description": "RSS feed fordera rants from devrant",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "devrant",
+    "rss"
+  ],
+  "author": "Ullas-Aithal",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "moment": "^2.24.0",
+    "request": "^2.88.0",
+    "rss": "^1.2.2"
+  }
+}
