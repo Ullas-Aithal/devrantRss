@@ -5,7 +5,7 @@ var moment = require('moment');
 var cors = require('cors');
 var app = express();
 var RSS = require('rss');
-var portNumber = 8090;
+var portNumber = process.env.PORT || 4000;
 var devRantAPI = 'https://devrant.com/api/devrant/rants?app=3&sort=top&range=day&limit=20&skip=0';
 var feedOptions = {
     title:'DevRant Unofficial RSS',
@@ -38,6 +38,7 @@ function buildFeed(res){
         //Build feed by adding rants as item to feed
         buildAndAddToFeed(rants).then((xml)=>{
             //Send response as rss xml
+            res.type('rss');
             res.send(xml);
         },(error) => {
             res.send(error);
