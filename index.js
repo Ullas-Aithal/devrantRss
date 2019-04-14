@@ -38,6 +38,7 @@ function buildFeed(res){
         //Build feed by adding rants as item to feed
         buildAndAddToFeed(rants).then((xml)=>{
             //Send response as rss xml
+            res.type('rss');
             res.send(xml);
         },(error) => {
             res.send(error);
