@@ -2,6 +2,7 @@
 
 A server side app that gets the latest rants from devRant using unofficial [devRant API](https://devrant-docs.github.io/) and builds RSS feed. Each feed will have the rant, image (if present), ++s, comments, user profile link and link to the rant.
 
+## Screenshot from Feedly
 ![Screenshot](screenshot.png?raw=true)
 
 ## Build Instructions
