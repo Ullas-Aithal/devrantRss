@@ -8,7 +8,6 @@ var RSS = require('rss');
 var portNumber = process.env.PORT || 4000;
 var Convert = require('ansi-to-html');
 var convert = new Convert();
-var portNumber = 8090;
 var devRantAPI = 'https://devrant.com/api/devrant/rants?app=3&sort=top&range=day&limit=20&skip=0';
 var feedOptions = {
     title:'DevRant Unofficial RSS',
