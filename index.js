@@ -6,6 +6,9 @@ var cors = require('cors');
 var app = express();
 var RSS = require('rss');
 var portNumber = process.env.PORT || 4000;
+var Convert = require('ansi-to-html');
+var convert = new Convert();
+var portNumber = 8090;
 var devRantAPI = 'https://devrant.com/api/devrant/rants?app=3&sort=top&range=day&limit=20&skip=0';
 var feedOptions = {
     title:'DevRant Unofficial RSS',
@@ -103,7 +106,8 @@ function buildAndAddToFeed(rants){
                 //Rant title which will be username
                 itemOptions.title = 'Rant from ' + rants[index].user_username;
                 //Start building description as HTML
-                itemOptions.description = '<h4>' + rants[index].text + '</h4>'; 
+                var rantText = convert.toHtml(rants[index].text);
+                itemOptions.description = '<p>' + rantText + '</p>'; 
                 //Add image to the HTML only if it exists
                 if(rants[index].attached_image != ""){
                     itemOptions.description += '<a href="' + rants[index].attached_image.url + '" target="_blank"><img src="'+ rants[index].attached_image.url +'" height="'+ rants[index].attached_image.height +'" width="' + rants[index].attached_image.width + '" /></a>';
